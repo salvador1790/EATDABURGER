@@ -1,4 +1,3 @@
-<html style="background-color:#FFD072"></html>
 
 <div>
 <img style="height: 200px; width:200px; margin-left: 600px" src="https://images.vexels.com/media/users/3/143047/isolated/preview/b0c9678466af11dd45a62163bdcf03fe-fast-food-hamburger-flat-icon-by-vexels.png" alt="">
@@ -6,9 +5,9 @@
 
 <form action="">
 
-<textarea id="textBox" style="margin-left: 630px" id="burgerType"></textarea>
+<textarea id="textBox" style="margin-left: 630px"></textarea>
 
-<button style="margin-left: 660px; height:50px">Send Burger</button>
+<button id="sendBurger" style="margin-left: 660px; height:50px">Send Burger</button>
 
 </form>
 </div>
@@ -16,7 +15,7 @@
 <ul>
     {{#each burgers}}
     <p>
-    {{this.id}} {{this.burger_name}} <button data-burgerID="{{this.id}}">Devour It!</button>
+    {{this.id}} {{this.burger_name}} <button data-burgerID="{{this.id}}" class="devour">Devour It!</button>
     </p>
     {{/each}}
 </ul>
@@ -27,11 +26,40 @@
 </div>
 
 <script>
-$("")
+
+$("#sendBurger").click(function(){
+    event.preventDefault();
+    var newBurger = {burger_name:$("#textBox").val()};
+    console.log(newBurger);
+
+    $.post('/api/burgers', newBurger, function(req,res){
+
+});
+
+})
+
+
+
+
+
+$(".devour").click(function(){
+    var id = $(this).data("id");
+    var status =  {
+        devoured: true
+    }
+    
+    $.post('/api/burgers')
+
+})
 
 
 
 </script>
+
+
+
+
+
 
 
 
