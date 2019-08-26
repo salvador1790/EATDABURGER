@@ -1,0 +1,40 @@
+<html style="background-color:#FFD072"></html>
+
+<div>
+<img style="height: 200px; width:200px; margin-left: 600px" src="https://images.vexels.com/media/users/3/143047/isolated/preview/b0c9678466af11dd45a62163bdcf03fe-fast-food-hamburger-flat-icon-by-vexels.png" alt="">
+<h1 style="margin-left: 580px" id="title">EAT-DA-BURGER</h1>
+
+<form action="">
+
+<textarea id="textBox" style="margin-left: 630px" id="burgerType"></textarea>
+
+<button style="margin-left: 660px; height:50px">Send Burger</button>
+
+</form>
+</div>
+<div id="nonDevoured">
+<ul>
+    {{#each burgers}}
+    <p>
+    {{this.id}} {{this.burger_name}} <button data-burgerID="{{this.id}}">Devour It!</button>
+    </p>
+    {{/each}}
+</ul>
+</div>
+
+<div id="Devoured">
+
+</div>
+
+<script>
+
+
+
+
+</script>
+
+
+
+
+
+
